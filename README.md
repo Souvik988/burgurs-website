@@ -2,11 +2,15 @@
 
 An animated restaurant website with a searchable menu, a persistent burger bag, and stories from Kolkata. Built with React, Vite and GSAP.
 
+[Live website](https://burgurs-website.vercel.app/) · [GitHub repository](https://github.com/Souvik988/burgurs-website)
+
 ![Dre's Burgers homepage](docs/desktop-home.jpg)
 
 ### Deployment
 
 Vercel builds this project with `npm run build` and serves `dist/`. The root `vercel.json` supports direct links to the application routes. No environment variables are required for the current website.
+
+The first production release was deployed from the local project with the Vercel CLI. Automatic deployments on GitHub pushes require granting Vercel access to the private repository and connecting it in the project's Git settings. To deploy manually from this linked checkout, run `vercel deploy --prod --scope shotlin085-9510s-projects`.
 
 The checkout is a preview: it calculates an estimate and reviews entered details, but does not take payment, submit orders or book delivery. Original-host video players and the map require network access. See [asset attribution](docs/attribution.md) for sources and license notes.
 
