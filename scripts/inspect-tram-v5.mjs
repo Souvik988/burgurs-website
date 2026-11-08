@@ -1,0 +1,4 @@
+import {chromium} from '@playwright/test';
+const browser=await chromium.launch({channel:'chrome',headless:true});const p=await browser.newPage({viewport:{width:1440,height:1000}});await p.goto('http://localhost:5177/',{waitUntil:'networkidle'});await p.waitForTimeout(2100);
+const b=await p.locator('.bite-journey').evaluate(el=>({top:el.offsetTop,t:el.offsetHeight-innerHeight}));await p.evaluate(y=>scrollTo(0,y),b.top+b.t*.5);await p.waitForTimeout(700);
+console.log(await p.evaluate(()=>{const path=document.querySelector('.city-route path');const length=path.getTotalLength();return {samples:[.2,.35,.5,.65,.8].map(p=>{const v=path.getPointAtLength(length*p);return {p,x:v.x,y:v.y}}),tram:document.querySelector('.city-tram').getBoundingClientRect().toJSON(),cards:[...document.querySelectorAll('.bite-slide')].map(e=>e.getBoundingClientRect().toJSON())}}));await browser.close();

@@ -1,0 +1,36 @@
+/* Shared asset rendering and compositor fixes, independent of page art direction. */
+body:after { display: none; }
+.generated-doodle { display: block; flex-shrink: 0; aspect-ratio: 1; }
+.doodle-field { opacity: .45; }
+.doodle-field.faint { opacity: .2; }
+.cinema-hero .doodle-field { opacity: .35; }
+.cinema-hero-product > .burger-eyes,
+.feel-good-burger > .burger-eyes {
+  position: absolute; width: 25%; height: auto; left: 40%; top: 14%; z-index: 4;
+  filter: none; transform: rotate(-7deg); transition: transform .25s;
+}
+.feel-good-burger > .burger-eyes { top: 13%; left: 39%; width: 24%; }
+.cinema-hero-product:hover > .burger-eyes,
+.feel-good-burger:hover > .burger-eyes { transform: translateY(-4px) rotate(5deg); }
+.cinema-hero-product > img:first-child { position: relative; }
+.assembly-food { contain: layout style; }
+.assembly-piece { will-change: transform; backface-visibility: hidden; }
+.assembly-sprite { position: relative; background: none; overflow: hidden; filter: none; contain: paint; transform: translateZ(0); }
+.assembly-sprite > img { position: absolute; left: 0; width: 100%; height: 600%; max-width: none; object-fit: fill; }
+.assembly-eyes { position: absolute; width: 22%; left: 39%; top: 25%; height: auto; z-index: 10; transform: rotate(-7deg); pointer-events: none; }
+.assembly-static .assembly-piece { will-change: auto; }
+.site-dialog { overscroll-behavior: contain; }
+.illustrated-map { aspect-ratio: 7/6; background: var(--mustard); overflow: hidden; }
+.illustrated-location-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; max-width: none; }
+.illustrated-map > .hand-note { background: var(--beige); padding: 14.4px; border-radius: 7.2px; }
+.checkout-review h2 { overflow-wrap: anywhere; }
+@media (max-width: 600px) {
+  .cinema-hero-product > .burger-eyes { width: 26%; left: 39%; top: 13%; }
+  .feel-good-burger > .burger-eyes { width: 24%; left: 39%; top: 12%; }
+  .assembly-eyes { top: 22%; }
+  .doodle-field > .sketch { width: 65px; height: 65px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .burger-eyes { transition: none !important; }
+  .assembly-piece { will-change: auto; }
+}

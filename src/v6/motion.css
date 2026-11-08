@@ -1,0 +1,84 @@
+/* ---------- v6 motion toolkit ---------- */
+.v6-doodle-img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
+
+/* Falling doodles: the layer clips at the section edge so doodles appear to drop in from above it. */
+.v6-fall-layer{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.v6-fall{position:absolute;display:block;pointer-events:auto;cursor:grab;transform:rotate(var(--r));will-change:transform}
+.v6-fall-inner{display:block;animation:v6-bob 3.4s ease-in-out infinite;rotate:calc(var(--scroll-tilt, 0) * 1deg);transition:rotate .2s}
+@keyframes v6-bob{0%,100%{translate:0 0}50%{translate:0 -7px}}
+/* Existing doodle fields also lean into fast scrolling. */
+
+
+/* Peeking mascots */
+.v6-peek{position:absolute;bottom:0;width:clamp(96px,11vw,170px);z-index:2;overflow:hidden;pointer-events:none;aspect-ratio:3/2.3}
+.v6-peek-right{right:clamp(16px,5vw,90px)}
+.v6-peek-left{left:clamp(16px,5vw,90px)}
+.v6-peek-body{position:absolute;left:0;right:0;top:0;width:100%;transform-origin:50% 100%;will-change:transform}
+
+/* Sticker eyes */
+.v6-eyes{display:flex;gap:clamp(18px,4vw,64px);justify-content:center;pointer-events:auto}
+.v6-eye{position:relative;width:clamp(74px,10vw,148px)}
+.v6-brow{position:absolute;left:12%;right:8%;top:-34%;height:22%;background:var(--beige);border-radius:60% 60% 20% 30%/100% 100% 30% 40%;transform:rotate(-8deg)}
+.v6-eye-1 .v6-brow{transform:rotate(8deg) scaleX(-1)}
+.v6-eyeball{position:relative;display:block;aspect-ratio:.86;background:var(--beige);border:clamp(4px,.55vw,7px) solid var(--black);border-radius:50%;overflow:hidden;box-shadow:0 0 0 clamp(5px,.7vw,9px) var(--beige)}
+.v6-pupil{position:absolute;left:50%;top:50%;width:48%;aspect-ratio:.82;margin:-29% 0 0 -24%;background:var(--black);border-radius:50%;will-change:transform}
+.v6-pupil i{position:absolute;width:30%;height:34%;left:52%;top:18%;background:var(--beige);border-radius:50%}
+.v6-lid{position:absolute;inset:0;background:var(--red);transform:scaleY(0);transform-origin:50% 0}
+
+/* Self-drawing squiggle */
+.v6-squiggle{display:block;width:min(300px,70%);height:24px;overflow:visible}
+
+/* Letter hop headline */
+.v6-jump{font:400 clamp(56px,7.4vw,118px)/.86 'Mouse Memoirs',sans-serif;color:var(--red);margin:10px 0 0;letter-spacing:-.005em;text-transform:uppercase}
+.v6-jline{display:block;white-space:nowrap}
+.v6-jl{display:inline-block;will-change:transform}
+
+/* Page progress: a little doodle burger rides a mustard line at the very top */
+.v6-meter{position:fixed;top:0;left:0;right:0;height:4px;z-index:150;pointer-events:none}
+.v6-meter-fill{position:absolute;inset:0;background:var(--mustard);transform-origin:0 50%;transform:scaleX(var(--page-progress,0))}
+.v6-meter-rider{position:absolute;top:-1px;left:0;width:26px!important;transform:translateX(calc(var(--page-progress,0) * (100vw - 30px))) rotate(calc(var(--scroll-tilt, 0) * 2deg));filter:drop-shadow(0 1px 0 #fff)}
+html[data-motion="off"] .v6-meter{display:none}
+
+@media (prefers-reduced-motion:reduce){.v6-fall-inner{animation:none}.v6-meter{display:none}}
+html[data-motion="off"] .v6-fall-inner{animation:none}
+@media (max-width:700px){.v6-fall{max-width:58px}.v6-peek{width:92px}}
+
+/* Eyes under "Food that feels good" */
+.feel-good-eyes{margin:clamp(40px,6vw,80px) auto 0}
+/* The big sticker eyes are the face of this scene; the burger below doesn't need a second pair. */
+.feel-good-burger>.burger-eyes{display:none}
+
+/* v8: hands-holding-burger hero shot on the homepage */
+.first-bite-photo:after{inset:0 45% 0 0;background:linear-gradient(90deg,#1b1b1bb3,#1b1b1b00)}
+.first-bite-caption .button{margin:0 10px 10px 0}
+.first-bite-watch{color:var(--beige)!important;border-color:#f5e3cd99!important;background:#1b1b1b33}
+.first-bite-note{position:absolute;right:14px;bottom:70px;z-index:3;font-size:12px;color:var(--beige);opacity:.75}
+@media (max-width:700px){.first-bite-photo:after{inset:30% 0 0 0;background:linear-gradient(0deg,#1b1b1bcc,#1b1b1b00)}.first-bite-image{object-position:50% 40%}}
+
+/* v8: two hero actions side by side */
+.cinema-hero-action{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.hero-order{box-shadow:0 6px 0 #8f0b08}
+
+/* ---------- v9: phone hero as a real column, order button always in the first screen ---------- */
+@media (max-width:540px){
+  .cinema-hero.page-hero{height:auto;min-height:100svh;display:flex;flex-direction:column;padding:104px 20px calc(18px + env(safe-area-inset-bottom))}
+  .cinema-hero .cinema-hero-title{margin-top:30px;flex:none}
+  .cinema-hero .cinema-hero-product{position:relative;top:auto;left:auto;width:min(88%,390px);margin:-4px auto 0;flex:none}
+  .cinema-hero .cinema-hero-wordmark{position:relative;top:auto;left:auto;translate:none;align-self:center;margin-top:-34px;font-size:clamp(78px,24vw,104px);line-height:.8;flex:none}
+  .cinema-hero .cinema-hero-note.note-right{display:none}
+  .cinema-hero .cinema-hero-note.note-left{position:relative;left:auto;bottom:auto;max-width:300px;text-align:center;align-self:center;margin:12px 0 0;font-size:17px;flex:none}
+  .cinema-hero .cinema-hero-action{position:relative;left:auto;bottom:auto;transform:none;margin-top:auto;padding-top:14px;display:flex;flex-direction:column;align-items:stretch;gap:10px;width:min(100%,340px);align-self:center}
+  .cinema-hero .cinema-hero-action .button{justify-content:space-between;font-size:17px;padding:12px 22px;rotate:0deg;border-radius:999px;margin:0}
+}
+@media (max-width:540px) and (max-height:700px){
+  .cinema-hero.page-hero{padding-top:88px}
+  .cinema-hero .cinema-hero-title{margin-top:18px;font-size:26vw}
+  .cinema-hero .cinema-hero-product{width:min(74%,330px)}
+  .cinema-hero .cinema-hero-wordmark{margin-top:-28px;font-size:clamp(66px,21vw,84px)}
+  .cinema-hero .cinema-hero-note.note-left{display:none}
+  .cinema-hero .cinema-hero-action .button{padding:10px 20px}
+}
+@media (max-width:540px) and (min-height:780px){
+  .cinema-hero .cinema-hero-product{width:min(96%,440px)}
+  .cinema-hero .cinema-hero-wordmark{margin-top:-44px;font-size:clamp(90px,27vw,120px)}
+}

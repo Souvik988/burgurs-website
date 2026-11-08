@@ -1,0 +1,110 @@
+/* Restore the established light, photographic homepage and Kolkata tram journey. */
+.tram-journey .bite-journey-stage { background: var(--mustard); }
+.tram-journey .city-panorama { opacity: .3; width: 110%; left: -5%; bottom: 0; height: 88%; object-fit: cover; }
+.tram-journey .bite-journey-heading { background: none; padding: 0; border-radius: 0; }
+.tram-journey .bite-journey-heading .scene-title { color: var(--red); }
+.tram-journey .bite-journey-heading > p { color: var(--black); }
+.tram-journey .bite-journey-track { will-change: transform; }
+.tram-journey .bite-slide { will-change: transform; backface-visibility: hidden; }
+.tram-journey .campaign-doodle-frame { opacity: 1; }
+.tram-journey .city-tram { top: 0; bottom: auto; left: 0; z-index: 2; width: 190px; height: 135px; will-change: transform; }
+.tram-journey .city-route { z-index: 1; opacity: .5; }
+.tram-journey .city-route path { stroke-width: 3; }
+.tram-journey .journey-controls { top: 80px; bottom: auto; }
+.tram-journey .journey-controls > button { width: 44px; height: 44px; }
+.tram-journey .journey-dots { gap: 5px; padding: 5px 8px; }
+.tram-journey .journey-dots button { position: relative; width: 27px; height: 34px; background: none; }
+.tram-journey .journey-dots button::after { content: ''; position: absolute; width: 9px; height: 9px; border-radius: 50%; left: 9px; top: 12px; background: var(--mustard-dark); }
+.tram-journey .journey-dots button.active { background: none; transform: none; scale: 1; }
+.tram-journey .journey-dots button.active::after { background: var(--red); transform: scale(1.35); }
+.tram-journey .campaign-disclosure { max-width: 320px; bottom: 48px; }
+.tram-journey.journey-static .bite-journey-heading { position: relative; inset: auto; padding: 0 36px; }
+.tram-journey.journey-static .city-route { display: none; }
+.tram-journey.journey-static .journey-controls { top: auto; bottom: 65px; }
+.tram-journey.journey-static .bite-slide,
+.tram-journey.journey-static .bite-journey-track { will-change: auto; }
+
+/* The ingredient story uses its original yellow stage, without a repeated city scene. */
+.burger-assembly { background: var(--mustard); }
+.assembly-stage { background: var(--mustard); }
+.assembly-copy { top: 86.4px; }
+.assembly-copy h2 { color: var(--red); }
+.assembly-disclosure { font-size: 12px; }
+
+/* A real street and a real storefront, with the quieter postcard layout. */
+.city-grounded { padding-bottom: 86.4px; }
+.city-grounded .city-postcards-copy { align-self: center; }
+.city-grounded .city-postcards-copy > p { max-width: 380px; }
+.city-grounded .city-postcards-grid { align-items: start; }
+.city-grounded .city-postcard img { height: 390px; }
+.city-grounded .city-postcard:nth-child(2) { translate: 0 57.6px; }
+.city-grounded .city-postcard figcaption { max-width: 90%; padding-left: 8px; }
+.city-grounded .city-postcard:first-child > button { rotate: 0; }
+.city-grounded .city-source-archive { grid-column: 1/-1; margin-top: 28.8px; border-top: 1px solid #1b1b1b33; padding-top: 21.6px; }
+.city-source-archive summary { cursor: pointer; font-size: 18.72px; }
+.city-source-archive summary > span { color: var(--red); margin-left: 21.6px; font-size: 14px; }
+.city-source-archive > p { font-size: 18.72px; line-height: 24px; max-width: 600px; margin-top: 21.6px; }
+.city-source-archive .city-postcards-grid { margin: 57.6px auto; max-width: 650px; }
+.city-source-archive .city-postcard img { height: 300px; }
+.city-grounded .city-note { display: block; margin-top: 21.6px; color: var(--black); font-size: 14px; }
+
+.founder-work-scenes { display: grid; grid-template-columns: .8fr 1.2fr; gap: 72px; align-items: center; overflow: hidden; }
+.founder-scenes-copy > .sticker { font-size: 21.6px; }
+.founder-scenes-copy .scene-title { font-size: clamp(70px, 7.5vw, 108px); margin: 36px 0 28.8px; line-height: .86; }
+.founder-scenes-copy > p { font-size: 25.92px; line-height: 1.15; max-width: 340px; margin-bottom: 28.8px; }
+.founder-scenes-copy > small { display: block; font-size: 14px; line-height: 20px; max-width: 340px; }
+.founder-scenes-copy > a { display: inline-block; font-size: 16px; margin-top: 21.6px; }
+.founder-scenes-pictures { display: grid; grid-template-columns: 1fr 1fr; gap: 21.6px; padding: 21.6px 0 57.6px; }
+.founder-concept-card { rotate: -5deg; }
+.founder-concept-card:nth-child(2) { rotate: 5deg; translate: 0 57.6px; }
+.founder-concept-card > button { background: var(--white); border: 0; border-radius: 14.4px; padding: 8.64px 8.64px 21.6px; box-shadow: var(--shadow-deep); width: 100%; text-align: left; }
+.founder-concept-card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 7.2px; }
+.founder-concept-card button > span { display: flex; flex-direction: column; gap: 8.64px; padding: 18px 7.2px 0; }
+.founder-concept-card small { font-size: 12px; line-height: 18px; }
+.founder-concept-card strong { color: var(--red); font-size: 25.92px; font-weight: 400; line-height: 1; }
+
+@media (max-width: 1000px) {
+  .tram-journey .journey-controls { top: 60px; right: 28.8px; }
+  .tram-journey .city-tram { width: 170px; height: 120px; }
+  .city-grounded .city-postcards-copy { max-width: 600px; }
+  .founder-work-scenes { grid-template-columns: 1fr; gap: 43.2px; }
+  .founder-scenes-pictures { width: 100%; max-width: 650px; margin: auto; }
+}
+@media (max-width: 600px) {
+  .tram-journey .bite-journey-stage { min-height: 800px; }
+  .tram-journey .bite-journey-track { top: 40%; }
+  .tram-journey .city-panorama { width: 180%; left: -40%; height: 75%; opacity: .3; }
+  .tram-journey .city-tram { width: 130px; height: 95px; }
+  .tram-journey .journey-controls { top: auto; bottom: 60px; gap: 8.64px; }
+  .tram-journey .journey-dots { gap: 0; padding: 5px; }
+  .tram-journey .journey-dots button { width: 23px; height: 34px; }
+  .tram-journey .journey-dots button::after { left: 8px; width: 7px; height: 7px; }
+  .tram-journey .journey-counter { min-width: 35px; font-size: 12px; }
+  .tram-journey .campaign-disclosure { bottom: 33px; font-size: 10px; }
+  .tram-journey.journey-static .bite-journey-heading { padding: 0 21.6px; }
+  .tram-journey.journey-static .bite-journey-track { top: auto; }
+  .assembly-stage { min-height: 844px; }
+  .assembly-copy { top: 43.2px; }
+  .assembly-food { top: 72%; }
+  .assembly-static .assembly-stage { height: 940px; min-height: 940px; }
+  .city-grounded { padding-bottom: 72px; }
+  .city-grounded .city-postcards-grid { gap: 21.6px; }
+  .city-grounded .city-postcard img { height: 220px; }
+  .city-grounded .city-postcard:nth-child(2) { translate: 0 36px; }
+  .city-grounded .city-source-archive { margin-top: 0; }
+  .city-source-archive summary { font-size: 16px; }
+  .city-source-archive summary > span { display: block; margin-left: 18px; font-size: 12px; }
+  .city-source-archive .city-postcards-grid { grid-template-columns: 1fr; max-width: 280px; }
+  .city-source-archive .city-postcard img { height: 300px; }
+  .founder-work-scenes { gap: 28.8px; }
+  .founder-scenes-copy > .sticker { font-size: 16px; }
+  .founder-scenes-copy .scene-title { font-size: 21vw; }
+  .founder-scenes-pictures { gap: 14.4px; }
+  .founder-concept-card > button { padding: 7.2px 7.2px 14.4px; }
+  .founder-concept-card strong { font-size: 18.72px; }
+  .founder-concept-card small { font-size: 10px; }
+  .founder-concept-card button > span { padding: 14.4px 0 0; gap: 5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tram-journey .bite-slide, .tram-journey .bite-journey-track { will-change: auto; }
+}

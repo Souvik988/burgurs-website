@@ -1,0 +1,7 @@
+.footer-wordmark-wrap{position:relative;overflow:hidden;padding-top:min(10vw,140px);margin-top:-30px}
+.footer-wordmark.fw-play{position:relative;display:block;margin-top:0;user-select:none;-webkit-user-select:none;touch-action:pan-y}
+.fw-text{display:block;color:inherit;text-decoration:none;position:relative;z-index:1}
+.fw-field{position:absolute;inset:0;z-index:2;cursor:pointer}
+.fw-item{position:absolute;left:0;top:0;width:60px;height:auto;visibility:hidden;will-change:transform;pointer-events:none}
+.footer-wordmark.is-static .fw-item{visibility:visible;transform:none;left:var(--rest-x);top:26%;width:10%;height:auto;translate:-50% 0}
+.footer-wordmark.is-static .fw-field{cursor:default}

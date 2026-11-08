@@ -1,0 +1,68 @@
+/* ---------- Meet the crew ---------- */
+.crew-section{position:relative;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(28px,5vw,90px);align-items:center;background:var(--beige);overflow:hidden}
+.crew-portrait{position:relative;z-index:2;aspect-ratio:2/3;max-width:520px;width:100%;justify-self:center}
+.crew-sun{position:absolute;left:4%;right:4%;top:6%;aspect-ratio:1;border-radius:50%;background:repeating-conic-gradient(from 0deg,var(--mustard) 0 10deg,#ffe48a 10deg 20deg);z-index:0}
+.crew-andre{position:relative;z-index:1;width:100%;height:auto;display:block;-webkit-mask-image:linear-gradient(#000 80%,transparent 99%);mask-image:linear-gradient(#000 80%,transparent 99%)}
+.crew-pop{position:absolute!important;z-index:3;width:clamp(44px,5vw,70px)!important}
+.crew-pop-1{left:-4%;top:30%}.crew-pop-2{right:-2%;top:12%}.crew-pop-3{right:4%;top:54%}
+.crew-tag{position:absolute;z-index:4;left:50%;bottom:9%;translate:-50% 0;white-space:nowrap;background:var(--red);color:var(--beige);font:400 clamp(17px,1.6vw,22px)/1 'Mouse Memoirs',sans-serif;letter-spacing:.04em;padding:10px 18px;border-radius:999px;box-shadow:0 4px 0 #1b1b1b33;transform:rotate(-4deg)}
+.crew-copy{position:relative;z-index:2}
+.crew-copy>p{font-size:clamp(17px,1.3vw,20px);line-height:1.5;max-width:540px;margin:18px 0 0}
+.crew-copy .crew-sub{font-family:'Mouse Memoirs',sans-serif;font-size:24px;letter-spacing:.02em;color:var(--red)}
+.crew-squiggle{margin-top:8px}
+.crew-bench{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0 30px;max-width:560px;border-bottom:4px solid var(--red);padding-bottom:4px}
+.crew-mate{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:0;padding:46px 4px 6px;cursor:pointer;color:var(--black);text-align:center;font:inherit}
+.crew-mate-art{width:min(120px,100%);height:120px;object-fit:contain;transform-origin:50% 100%;will-change:transform}
+.crew-mate strong{font:400 24px/1 'Mouse Memoirs',sans-serif;letter-spacing:.04em;color:var(--red);margin-top:8px}
+.crew-mate small{font:400 13px/1.1 'Mouse Memoirs',sans-serif;letter-spacing:.06em;opacity:.75}
+.crew-bubble{position:absolute;top:0;left:50%;width:max-content;max-width:180px;translate:-50% 0;background:#fff;color:var(--black);font:400 17px/1.1 'Mouse Memoirs',sans-serif;padding:7px 12px;border-radius:14px;border:2px solid var(--red);opacity:0;transform:scale(.6) translateY(10px);transition:opacity .2s,transform .3s cubic-bezier(.3,1.8,.5,1);pointer-events:none;z-index:3}
+.crew-bubble::after{content:'';position:absolute;left:50%;bottom:-8px;width:12px;height:12px;background:#fff;border:2px solid var(--red);border-top:0;border-left:0;transform:translateX(-50%) rotate(45deg)}
+.crew-mate.is-talking .crew-bubble,.crew-mate:hover .crew-bubble,.crew-mate:focus-visible .crew-bubble{opacity:1;transform:none}
+.crew-mate:focus-visible{outline:3px solid var(--red);outline-offset:4px;border-radius:12px}
+.crew-note{display:block;margin-top:18px;font-size:13px;opacity:.65;max-width:460px}
+
+/* ---------- Word on the street ---------- */
+.wots-section{position:relative;background:var(--beige);padding:115px 0 0;overflow:hidden;text-align:center}
+.wots-head{position:relative;z-index:2;padding:0 20px}
+.wots-head .v6-jump{font-size:clamp(64px,9vw,150px)}
+.wots-head>p{max-width:520px;margin:18px auto 0;font-size:clamp(17px,1.3vw,20px);line-height:1.45}
+.wots-cards{position:relative;z-index:2;display:flex;justify-content:center;gap:clamp(14px,2.4vw,34px);margin:54px auto 0;padding:0 20px;flex-wrap:wrap}
+.wots-card{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:clamp(200px,22vw,290px);aspect-ratio:1/1.05;border-radius:28px;padding:22px;text-decoration:none;color:var(--beige);background:var(--red);box-shadow:0 10px 0 #1b1b1b1f;transition:box-shadow .25s}
+.wots-card:hover{box-shadow:0 16px 0 #1b1b1b26}
+.wots-mustard{background:var(--mustard);color:var(--red)}
+.wots-cream{background:#fff;color:var(--red);border:3px dashed var(--red)}
+.wots-num{font:400 clamp(72px,8vw,120px)/.85 Modak,sans-serif;letter-spacing:-.04em;display:flex;align-items:flex-start;font-variant-numeric:tabular-nums}
+.wots-num i{font-style:normal;font-size:.38em;margin:.12em 0 0 .06em;font-family:'Mouse Memoirs',sans-serif}
+.wots-card strong{font:400 26px/1 'Mouse Memoirs',sans-serif;letter-spacing:.05em;margin-top:12px}
+.wots-card small{font:400 17px/1 'Mouse Memoirs',sans-serif;letter-spacing:.06em;opacity:.85;margin-top:6px}
+.wots-open{position:absolute;top:16px;right:20px;font-size:20px}
+.wots-chips{position:relative;z-index:3;list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px 14px;max-width:900px;margin:46px auto 0;padding:0 20px}
+.wots-chip{font:400 clamp(20px,1.8vw,26px)/1 'Mouse Memoirs',sans-serif;letter-spacing:.04em;padding:10px 20px;border-radius:999px;background:#fff;color:var(--red);border:2px solid var(--red);box-shadow:0 4px 0 var(--red);cursor:default}
+.wots-chip:nth-child(3n+2){background:var(--red);color:var(--beige);box-shadow:0 4px 0 #8f0b08}
+.wots-chip:nth-child(3n){background:var(--mustard)}
+.wots-kiosk{position:relative;z-index:1;margin:-40px 0 0;overflow:hidden;-webkit-mask-image:linear-gradient(transparent 0,#000 26%);mask-image:linear-gradient(transparent 0,#000 26%)}
+.wots-kiosk img{display:block;width:100%;height:auto;min-height:340px;object-fit:cover;object-position:50% 100%;will-change:transform}
+.wots-kiosk figcaption{position:absolute;right:16px;bottom:10px;max-width:420px;text-align:right;font-size:12px;color:var(--beige);text-shadow:0 1px 2px #0008}
+
+@media (max-width:860px){
+  .crew-section{grid-template-columns:1fr}
+  .crew-portrait{max-width:380px}
+  .crew-bench{gap:6px}
+  .crew-mate-art{height:96px}
+  .crew-mate small{font-size:12px}
+}
+@media (max-width:560px){
+  .wots-card{width:min(300px,82vw);aspect-ratio:auto;padding:26px 20px}
+  .wots-cards{gap:18px}
+  .wots-kiosk{margin-top:0}
+  .wots-kiosk figcaption{position:static;color:var(--black);text-shadow:none;text-align:center;padding:10px 16px;background:var(--beige)}
+  .crew-bubble{max-width:120px;font-size:15px}
+}
+/* Trim the illustration's empty sky; keep the street scene. */
+.wots-kiosk img{aspect-ratio:1536/760;object-fit:cover;object-position:50% 100%}
+/* Keep the outer speech bubbles inside the bench. */
+.crew-mate:first-child .crew-bubble{left:0;translate:0 0}
+.crew-mate:first-child .crew-bubble::after{left:28px}
+.crew-mate:last-child .crew-bubble{left:auto;right:0;translate:0 0}
+.crew-mate:last-child .crew-bubble::after{left:auto;right:22px}
+.crew-bench{overflow:visible}

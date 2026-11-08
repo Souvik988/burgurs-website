@@ -1,0 +1,27 @@
+import { chromium } from '@playwright/test';
+import { mkdir, writeFile } from 'node:fs/promises';
+await mkdir('output/phase-5',{recursive:true});
+const browser=await chromium.launch({channel:'chrome',headless:true});
+const page=await browser.newPage({viewport:{width:390,height:844}});
+const checks=[];
+const check=(name,passed)=>{checks.push({name,passed});if(!passed)throw new Error(name)};
+await page.goto('http://localhost:5177/',{waitUntil:'domcontentloaded'});
+await page.screenshot({path:'output/phase-5/mobile-opening.jpg'});
+await page.locator('.opening-sequence').waitFor({state:'detached'});
+await page.waitForTimeout(1000);
+await page.screenshot({path:'output/phase-5/mobile-home.jpg'});
+await page.getByRole('button',{name:'Open navigation',exact:true}).click();await page.waitForTimeout(600);
+check('Six links in expanded menu',await page.locator('#mobile-nav>a').count()===6);
+await page.screenshot({path:'output/phase-5/mobile-menu.jpg'});
+await page.keyboard.press('Escape');await page.locator('#mobile-nav').waitFor({state:'detached'});
+check('Escape restores menu trigger focus',await page.getByRole('button',{name:'Open navigation',exact:true}).evaluate(el=>el===document.activeElement));
+const scene=await page.locator('.bite-journey').evaluate(el=>({top:el.offsetTop,h:el.offsetHeight-innerHeight}));
+for(const p of [0,.5,1]){await page.evaluate(y=>scrollTo(0,y),scene.top+scene.h*p);await page.waitForTimeout(1300);await page.screenshot({path:`output/phase-5/mobile-story-${p}.jpg`});}
+await page.locator('.bite-slide-6 button').click();await page.waitForTimeout(500);check('Last Kolkata portrait opens',await page.getByRole('dialog').isVisible());await page.screenshot({path:'output/phase-5/mobile-photo.jpg'});await page.keyboard.press('Escape');await page.locator('dialog').waitFor({state:'detached'});
+await page.goto('http://localhost:5177/kolkata',{waitUntil:'networkidle'});await page.waitForTimeout(1200);
+await page.locator('.city-postcards').scrollIntoViewIfNeeded();await page.waitForTimeout(1000);await page.screenshot({path:'output/phase-5/mobile-city.jpg'});
+await page.locator('.city-postcard button').first().click();check('City photo source and license available',await page.getByRole('dialog').getByRole('link',{name:'VIEW LICENSE'}).count()===1);await page.keyboard.press('Escape');await page.locator('dialog').waitFor({state:'detached'});
+await page.goto('http://localhost:5177/stories',{waitUntil:'networkidle'});await page.locator('.founder-feed').scrollIntoViewIfNeeded();await page.waitForTimeout(1000);await page.screenshot({path:'output/phase-5/mobile-founder.jpg'});
+await page.getByRole('button',{name:'Open Instagram post: WELCOME TO THE SMASH CLUB.',exact:true}).click();check('Founder original post player available',(await page.locator('iframe').getAttribute('src')).includes('CmtFT3wMWNc'));await page.keyboard.press('Escape');await page.locator('dialog').waitFor({state:'detached'});
+await page.reload({waitUntil:'networkidle'});check('Opening does not repeat this session',await page.locator('.opening-sequence').count()===0);
+await writeFile('output/phase-5/checks.json',JSON.stringify(checks,null,2));console.log(JSON.stringify(checks));await browser.close();

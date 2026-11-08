@@ -1,0 +1,110 @@
+/* ---------- Story v7 ---------- */
+.story-v7{background:var(--beige)}
+.story-hero-v7{position:relative;height:100svh;min-height:620px;overflow:hidden;isolation:isolate;background:#e9cfa9}
+.sh-art{position:absolute;inset:0;z-index:0}
+.sh-art img{width:100%;height:100%;object-fit:cover;object-position:68% 50%;will-change:transform}
+.story-hero-v7::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#f5e3cdf2 0%,#f5e3cdcc 30%,#f5e3cd00 58%);pointer-events:none}
+.sh-copy{position:absolute;z-index:2;left:max(20px,calc((100vw - 1320px)/2));top:50%;translate:0 -46%;max-width:min(640px,90vw)}
+.sh-title{margin:0;font:400 clamp(60px,7.6vw,132px)/.84 'Mouse Memoirs',sans-serif;color:var(--red);text-transform:uppercase}
+.sh-title em{font-style:normal;color:var(--beige);background:var(--red);padding:0 .12em;border-radius:.12em;display:inline-block;transform:rotate(-2deg)}
+.sh-copy .v7-body{margin-top:20px}
+.sh-scroll{display:inline-block;margin-top:26px;font:400 18px 'Mouse Memoirs',sans-serif;letter-spacing:.12em;color:var(--red);animation:sh-bounce 1.6s ease-in-out infinite}
+@keyframes sh-bounce{50%{transform:translateY(8px)}}
+.sh-steam{position:absolute;z-index:2;width:70px;opacity:.85;filter:brightness(0) invert(1);right:22%;top:48%;rotate:-80deg}
+.sh-steam-1{right:26%;top:44%;width:56px}.sh-steam-2{right:19%;top:42%;width:46px}
+.sh-note{position:absolute;z-index:2;right:16px;bottom:12px;font-size:12px;color:#fff;text-shadow:0 1px 2px #0009}
+
+/* Chapters */
+.story-chapters{position:relative;overflow:hidden;isolation:isolate;background:var(--mustard);height:100svh;display:flex;align-items:center}
+.story-chapters .v7-track{position:relative;z-index:1;height:100%;align-items:center;gap:clamp(40px,5vw,90px);padding:0 max(20px,6vw)}
+.ch-intro{flex:0 0 min(500px,84vw)}
+.ch-title{font-size:clamp(64px,7.6vw,130px)}
+.ch-rail{position:absolute;z-index:2;left:max(20px,6vw);right:max(20px,6vw);top:110px;height:4px;border-radius:4px;background:#f9181433;--p:0}
+.ch-rail-fill{position:absolute;inset:0;background:var(--red);transform-origin:0 50%;transform:scaleX(var(--p))}
+.ch-rail-rider{position:absolute;top:-22px;left:0;width:44px;transform:translateX(calc(var(--p) * (100vw - 12vw - 44px))) rotate(calc(var(--p) * 720deg))}
+.ch-card{position:relative;flex:0 0 min(860px,86vw);display:grid;grid-template-columns:1fr .9fr;gap:clamp(20px,3vw,46px);align-items:center}
+.ch-card.is-wide{flex-basis:min(1040px,90vw);grid-template-columns:1.35fr .8fr}
+.ch-tag{position:absolute;top:-70px;left:0;font:400 clamp(60px,8vw,140px)/.8 Modak,sans-serif;color:transparent;-webkit-text-stroke:3px var(--red);letter-spacing:-.02em;white-space:nowrap;z-index:0}
+.ch-photo{position:relative;margin:0;background:#fff;padding:12px 12px 46px;border-radius:10px;box-shadow:0 16px 30px #1b1b1b2e;z-index:1}
+.ch-photo>img{display:block;width:100%;height:min(52svh,460px);object-fit:cover;border-radius:4px}
+.ch-card:not(.is-wide) .ch-photo>img{height:min(56svh,500px)}
+.ch-photo-2{position:absolute;right:-18%;bottom:-12%;width:44%;height:auto!important;border:8px solid #fff;border-radius:6px;transform:rotate(7deg);box-shadow:0 10px 20px #1b1b1b33}
+.ch-tape{position:absolute;top:-14px;left:50%;width:110px;height:30px;background:#ffffffa6;transform:translateX(-50%) rotate(-4deg);box-shadow:0 1px 2px #0001}
+.ch-copy{position:relative;z-index:1}
+.ch-num{font:400 22px 'Mouse Memoirs',sans-serif;letter-spacing:.12em;color:var(--red)}
+.ch-copy h3{font:400 clamp(44px,4.6vw,78px)/.88 'Mouse Memoirs',sans-serif;color:var(--red);margin:6px 0 14px}
+.ch-copy p{font-size:clamp(17px,1.3vw,21px);line-height:1.4;margin:0 0 16px}
+.ch-copy a{color:var(--red);font:400 20px 'Mouse Memoirs',sans-serif;letter-spacing:.06em}
+.ch-copy small{display:block;margin-top:10px;font-size:12px;opacity:.7}
+@media (max-width:899px){
+  .story-chapters .v7-track{gap:22px;padding:0 20px}
+  .ch-intro{flex-basis:78vw}
+  .ch-title{font-size:clamp(56px,16.5vw,100px)}
+  .ch-card,.ch-card.is-wide{flex-basis:80vw;grid-template-columns:1fr;gap:16px;align-content:center}
+  .ch-tag{top:-54px;font-size:54px;-webkit-text-stroke-width:2px}
+  .ch-photo{padding:9px 9px 34px}
+  .ch-photo>img,.ch-card:not(.is-wide) .ch-photo>img{height:min(32svh,300px)}
+  .ch-photo-2{right:-6%;width:38%}
+  .ch-copy h3{font-size:clamp(34px,10vw,50px);margin:4px 0 8px}
+  .ch-copy p{font-size:16px;margin:0 0 10px}
+  .ch-rail{top:84px;left:20px;right:20px}
+  .ch-rail-rider{width:34px;top:-17px;transform:translateX(calc(var(--p) * (100vw - 40px - 34px))) rotate(calc(var(--p) * 720deg))}
+}
+html[data-motion="off"] .story-chapters{height:auto;display:block;padding:100px 0 60px}
+html[data-motion="off"] .story-chapters .v7-track{height:auto;padding:60px 20px 20px;align-items:stretch}
+html[data-motion="off"] .ch-rail{display:none}
+
+/* Method */
+.story-method{position:relative;overflow:hidden;isolation:isolate;background:var(--red);color:var(--beige);height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:40px;padding:0 max(20px,calc((100vw - 1320px)/2))}
+.story-method>*:not(.v7-doodle-bg){position:relative;z-index:1}
+.story-method .v7-kicker{color:var(--red)}
+.m-window{height:clamp(110px,15vw,240px);overflow:hidden;margin:8px 0 18px}
+.m-words{display:flex;flex-direction:column;will-change:transform}
+.m-word{display:block;height:clamp(110px,15vw,240px);font:400 clamp(110px,15vw,240px)/1 'Mouse Memoirs',sans-serif;color:var(--beige)}
+.m-texts{position:relative;min-height:130px;max-width:500px}
+.m-text{position:absolute;inset:0 auto auto 0;margin:0;font-size:clamp(19px,1.5vw,24px);line-height:1.4}
+.m-text small{display:block;font-size:12px;opacity:.75;margin-top:8px}
+.m-mobile-word{display:none}
+.m-counter{display:block;margin-top:24px;font:400 26px 'Mouse Memoirs',sans-serif;letter-spacing:.1em;color:var(--mustard)}
+.m-right{position:relative;height:min(76svh,680px)}
+.m-shot{position:absolute;inset:0;margin:auto;width:min(420px,90%);height:fit-content;background:var(--beige);padding:14px 14px 50px;border-radius:12px;box-shadow:0 24px 40px #0000004d;will-change:transform}
+.m-shot img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px}
+.m-shot figcaption{position:absolute;left:18px;bottom:14px;font:400 20px 'Mouse Memoirs',sans-serif;letter-spacing:.08em;color:var(--red)}
+@media (max-width:899px){
+  .story-method{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);gap:6px;align-content:start;padding:84px 20px calc(18px + env(safe-area-inset-bottom))}
+  .story-method .v7-kicker{font-size:18px;margin-bottom:0}
+  .m-window,.m-word{height:clamp(84px,26vw,120px)}
+  .m-word{font-size:clamp(84px,26vw,120px)}
+  .m-window{margin:0 0 6px}
+  .m-texts{min-height:112px;max-width:none}
+  .m-text{font-size:16px}
+  .m-counter{margin-top:6px;font-size:22px}
+  .m-right{height:100%;min-height:0}
+  .m-shot{width:min(72vw,300px,calc(100svh - 480px));padding:10px 10px 40px}
+  .m-shot img{aspect-ratio:1/1}
+  .m-shot figcaption{font-size:17px;left:14px;bottom:10px}
+}
+html[data-motion="off"] .story-method{height:auto;grid-template-columns:1fr;padding:90px 20px}
+html[data-motion="off"] .m-text{position:static;margin:0 0 18px}
+html[data-motion="off"] .m-window,html[data-motion="off"] .m-counter{display:none}
+html[data-motion="off"] .m-mobile-word{display:block;font:400 54px/1 'Mouse Memoirs',sans-serif;color:var(--mustard)}
+html[data-motion="off"] .m-right{height:auto;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}
+html[data-motion="off"] .m-shot{position:relative;flex:0 0 min(300px,72vw);width:auto;scroll-snap-align:start}
+
+/* Principles */
+.story-principles{background:var(--beige);text-align:center}
+.pr-title{font-size:clamp(60px,7.8vw,130px)}
+.pr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,30px);margin:56px 0 70px;perspective:1000px}
+.pr-card{background:#fff;border-radius:30px;padding:34px 26px;text-align:left;box-shadow:0 10px 0 #1b1b1b14;position:relative;transform-style:preserve-3d}
+.pr-card:nth-child(2){background:var(--mustard)}.pr-card:nth-child(3){background:var(--red);color:var(--beige)}
+.pr-card img{position:absolute;top:-28px;right:22px;width:72px}
+.pr-card:nth-child(3) img{filter:brightness(0) invert(.92) sepia(.3)}
+.pr-card span{font:400 20px 'Mouse Memoirs',sans-serif;letter-spacing:.1em;opacity:.6}
+.pr-card h3{font:400 clamp(36px,3.2vw,52px)/.9 'Mouse Memoirs',sans-serif;color:var(--red);margin:8px 0 12px}
+.pr-card:nth-child(3) h3{color:var(--beige)}
+.pr-card p{font-size:18px;line-height:1.4;margin:0}
+.pr-quote{display:inline-block;margin:0 auto 40px;background:var(--red);color:var(--beige);padding:28px 40px;border-radius:24px;max-width:720px;box-shadow:0 12px 0 #8f0b0855}
+.pr-quote p{margin:0;font:400 clamp(38px,4.4vw,68px)/.95 'Mouse Memoirs',sans-serif}
+.pr-quote cite a{display:inline-block;margin-top:10px;font:normal 400 18px 'Mouse Memoirs',sans-serif;letter-spacing:.08em;color:var(--mustard)}
+.pr-insta{display:flex;width:max-content;margin:0 auto}
+@media (max-width:860px){.pr-grid{grid-template-columns:1fr;gap:40px}.sh-copy{top:auto;bottom:40px;translate:none}.story-hero-v7::after{background:linear-gradient(0deg,#f5e3cdf5 0%,#f5e3cde0 45%,#f5e3cd00 70%)}.sh-art img{object-position:72% 30%}.sh-steam{display:none}}

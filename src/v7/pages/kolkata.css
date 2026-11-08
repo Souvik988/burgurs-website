@@ -1,0 +1,123 @@
+/* ---------- Kolkata v7 ---------- */
+.kolkata-v7{background:var(--beige)}
+.kol-hero{position:relative;height:100svh;min-height:640px;overflow:hidden;isolation:isolate;background:var(--beige)}
+.kh-sky{position:absolute;inset:0;background:#ffe9a8;z-index:0}
+.kh-sky .v7-doodle-bg{opacity:.25}
+.kh-sun{position:absolute;left:50%;top:16%;width:clamp(220px,30vw,460px);aspect-ratio:1;margin-left:calc(clamp(220px,30vw,460px) / -2);border-radius:50%;background:radial-gradient(circle at 40% 38%,#ffe27a,var(--mustard-dark));box-shadow:0 0 0 18px #ffd75055,0 0 0 40px #ffd75033}
+.kh-layer{position:absolute;left:50%;bottom:0;width:max(110vw,980px);height:auto;translate:-50% 0;transform-origin:50% 100%;will-change:transform;pointer-events:none}
+.kh-far{z-index:1;bottom:30%;width:max(100vw,980px)}
+.kh-title{position:absolute;z-index:2;left:0;right:0;top:11%;text-align:center;font-size:clamp(56px,8.4vw,150px);color:var(--red);text-shadow:0 4px 0 #ffffff80}
+.kh-mid{z-index:3;bottom:-4%;width:max(100vw,980px)}
+.kh-street{z-index:4;bottom:-2px;width:max(108vw,1000px);translate:-48% 0}
+.kh-caption{position:absolute;z-index:5;left:50%;top:14%;translate:-50% 0;margin:0;width:min(560px,86vw);text-align:center;background:var(--red);color:var(--beige);font:400 clamp(22px,2vw,30px)/1.1 'Mouse Memoirs',sans-serif;letter-spacing:.02em;padding:16px 24px;border-radius:20px;opacity:0;box-shadow:0 10px 0 #8f0b0855}
+@media (max-width:699px){
+  /* Portrait: the layers are wider than the screen (so the paper detail stays readable) and are
+     stacked with vw offsets, so the skyline/houses/street keep their spacing on every phone. */
+  .kol-hero{height:100svh;min-height:560px}
+  .kh-title{top:calc(72px + 3svh);font-size:clamp(48px,15vw,84px);line-height:.86}
+  .kh-sun{top:calc(72px + 17svh);width:54vw;margin-left:-27vw;box-shadow:0 0 0 10px #ffd75055,0 0 0 22px #ffd75033}
+  /* One unit that follows the width on tall phones and the height on short ones, so the stack never
+     climbs up under the title. */
+  .kol-hero{--u:min(1vw,.53svh)}
+  .kh-far{width:calc(var(--u) * 190);bottom:calc(var(--u) * 85)}
+  .kh-mid{width:calc(var(--u) * 200);bottom:calc(var(--u) * 27)}
+  .kh-street{width:calc(var(--u) * 230);bottom:-2px;translate:-50% 0}
+  .kh-caption{top:calc(72px + 3svh);width:min(86vw,420px);font-size:21px;padding:14px 18px;z-index:6}
+}
+@media (max-width:699px) and (max-height:700px){.kh-title{font-size:13vw}.kh-sun{top:calc(64px + 15svh)}}
+html[data-motion="off"] .kh-caption{opacity:1;top:auto;bottom:5%}
+@media (max-width:699px){html[data-motion="off"] .kh-caption{top:auto;bottom:calc(75vw + 2svh)}}
+html[data-motion="off"] .kh-caption{opacity:1}
+
+/* A day at Dre's */
+.day-at-dres{position:relative;height:100svh;min-height:640px;overflow:hidden;isolation:isolate;background:#ffe9a8;color:#f91814;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:30px;padding:0 max(20px,calc((100vw - 1320px)/2))}
+.day-head{position:absolute;top:110px;left:max(20px,calc((100vw - 1320px)/2));z-index:2}
+.day-title{margin:0;font:400 clamp(54px,6vw,100px)/.9 'Mouse Memoirs',sans-serif;color:inherit}
+.day-orb{--orb:clamp(90px,10vw,150px);position:absolute;left:50%;top:115%;width:0;height:0;z-index:0;pointer-events:none}
+.day-sun,.day-moon{position:absolute;left:0;top:0;width:var(--orb);aspect-ratio:1;margin:calc(var(--orb) / -2) 0 0 calc(var(--orb) / -2);border-radius:50%;will-change:transform}
+.day-sun{background:var(--mustard-dark);box-shadow:0 0 60px #ffd750}
+.day-moon{background:var(--beige);box-shadow:0 0 40px #f5e3cd88;transform:rotate(180deg)}
+.day-moon::after{content:'';position:absolute;inset:0 0 0 28%;border-radius:50%;background:#3a0610;opacity:.0}
+.day-stars{position:absolute;inset:0;z-index:0;opacity:0;pointer-events:none}
+.day-stars i{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--mustard);animation:day-twinkle 2.2s ease-in-out infinite}
+@keyframes day-twinkle{50%{opacity:.25;transform:scale(.6)}}
+.day-clock{position:relative;z-index:2;display:flex;align-items:flex-start;font:400 clamp(150px,22vw,360px)/.8 Modak,sans-serif;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.day-clock-ampm{font-size:.3em;margin:.2em 0 0 .1em}
+.day-cards{position:relative;z-index:2;display:grid;min-height:340px}
+.day-card{grid-area:1/1;align-self:center;background:#fff;color:var(--black);border-radius:30px;padding:34px 30px 30px;box-shadow:0 14px 0 #0000001f;max-width:480px}
+.day-card img{position:absolute;top:-46px;right:26px;width:96px}
+.day-card-time{font:400 20px 'Mouse Memoirs',sans-serif;letter-spacing:.12em;color:var(--red)}
+.day-card h3{font:400 clamp(40px,4vw,64px)/.9 'Mouse Memoirs',sans-serif;color:var(--red);margin:8px 0 12px}
+.day-card p{font-size:clamp(17px,1.3vw,21px);line-height:1.4;margin:0}
+.day-skyline{position:absolute;left:50%;bottom:-2px;width:max(110vw,980px);translate:-50% 0;z-index:1;opacity:.9;pointer-events:none}
+@media (max-width:699px){
+  .day-at-dres{height:100svh;min-height:560px;grid-template-columns:1fr;grid-template-rows:auto auto minmax(0,1fr);align-items:start;gap:0;padding:calc(76px + 2svh) 20px 0}
+  .day-head{position:static;grid-row:1}
+  .day-title{font-size:clamp(46px,13vw,70px)}
+  .day-clock{grid-row:2;font-size:clamp(88px,26vw,130px);margin-top:16px}
+  .day-cards{grid-row:3;align-self:start;min-height:0;margin-top:34px;padding-bottom:calc(26vw)}
+  .day-card{max-width:none;padding:26px 22px 22px;border-radius:24px}
+  .day-card img{width:70px;top:-36px;right:18px}
+  .day-card h3{font-size:clamp(34px,10vw,46px)}
+  .day-card p{font-size:16px}
+  .day-skyline{width:150vw}
+  .day-orb{--orb:clamp(70px,20vw,110px)}
+}
+html[data-motion="off"] .day-at-dres{height:auto;display:block;padding:120px 20px 240px;background:linear-gradient(#ffe9a8,#ffc24a 35%,#f2552c 70%,#3a0610)}
+html[data-motion="off"] .day-head{position:static;margin-bottom:30px}
+html[data-motion="off"] .day-clock,html[data-motion="off"] .day-orb{display:none}
+html[data-motion="off"] .day-cards{display:flex;flex-direction:column;gap:56px;padding-bottom:0;margin-top:0}
+html[data-motion="off"] .day-card{opacity:1!important;transform:none!important}
+
+/* Decoded */
+.kol-decoded{background:var(--beige);text-align:center}
+.dict-title{font-size:clamp(64px,8.6vw,150px)}
+.kol-decoded .v7-body{margin:16px auto 0}
+.dict-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,34px);margin-top:50px;perspective:1200px}
+.dict-card{position:relative;height:280px;border:0;padding:0;background:none;cursor:pointer;font:inherit;color:inherit}
+.dict-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.3,1.4,.5,1)}
+.dict-card.is-open .dict-inner{transform:rotateY(180deg)}
+.dict-front,.dict-back{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:24px;border-radius:28px;backface-visibility:hidden;box-shadow:0 10px 0 #1b1b1b18}
+.dict-front{background:#fff;color:var(--red)}
+.dict-card:nth-child(3n+2) .dict-front{background:var(--mustard)}
+.dict-card:nth-child(3n) .dict-front{background:var(--red);color:var(--beige)}
+.dict-back{background:var(--black);color:var(--beige);transform:rotateY(180deg)}
+.dict-bn{font:600 clamp(34px,3vw,46px)/1.2 'Noto Sans Bengali','Nirmala UI','Shonar Bangla',system-ui,sans-serif}
+.dict-front strong,.dict-back strong{font:400 clamp(40px,3.6vw,58px)/.9 'Mouse Memoirs',sans-serif;letter-spacing:.02em}
+.dict-back strong{color:var(--mustard)}
+.dict-front small{font-size:16px;opacity:.75}
+.dict-front em{font:normal 400 15px 'Mouse Memoirs',sans-serif;letter-spacing:.1em;margin-top:10px;opacity:.7}
+.dict-back span{font-size:19px;line-height:1.35;max-width:300px}
+.dict-card:focus-visible{outline:3px solid var(--red);outline-offset:6px;border-radius:28px}
+@media (max-width:860px){.dict-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dict-card{height:240px}}
+@media (max-width:520px){.dict-grid{grid-template-columns:1fr}}
+
+/* Our corner */
+.kol-corner{background:var(--mustard);display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,4vw,60px);align-items:center}
+.corner-title{font-size:clamp(56px,7vw,120px)}
+.corner-copy .v7-body{margin:18px 0 26px}
+.corner-map{position:relative;display:block;aspect-ratio:3/2;border-radius:36px;overflow:hidden;box-shadow:0 16px 0 #1b1b1b1f,0 0 0 6px var(--beige);transform:rotate(1.2deg);color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.corner-map picture,.corner-map-art{display:block;width:100%;height:100%}
+.corner-map-art{object-fit:cover;will-change:transform}
+.corner-route{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.corner-start{position:absolute;left:2%;bottom:3%;display:flex;align-items:center;gap:8px;font:400 clamp(14px,1.4vw,20px)/1 'Mouse Memoirs',sans-serif;letter-spacing:.08em;color:var(--beige);background:var(--red);padding:6px 12px 6px 8px;border-radius:999px;box-shadow:0 3px 0 #8f0b08}
+.corner-start i{width:12px;height:12px;border-radius:50%;background:var(--mustard);box-shadow:0 0 0 4px #ffd75066}
+.corner-rider{position:absolute;left:0;top:0;width:clamp(34px,3.4vw,48px);aspect-ratio:1;margin:calc(clamp(34px,3.4vw,48px) / -2) 0 0 calc(clamp(34px,3.4vw,48px) / -2);border-radius:50%;background:#fff;box-shadow:0 4px 0 var(--red),0 6px 10px #1b1b1b33;display:grid;place-items:center;pointer-events:none;will-change:transform}
+.corner-rider img{width:68%;height:68%;object-fit:contain}
+.corner-pulse{position:absolute;left:89.3%;top:29.3%;width:44px;height:44px;margin:-22px;border-radius:50%;border:4px solid var(--red);pointer-events:none;opacity:0}
+.corner-burst{position:absolute;left:89.3%;top:29.3%;width:0;height:0;pointer-events:none}
+.corner-burst img{position:absolute;width:30px;height:30px;margin:-15px;object-fit:contain;opacity:0;filter:drop-shadow(0 2px 0 #fff)}
+.corner-label{position:absolute;font:400 clamp(14px,1.5vw,22px)/1 'Mouse Memoirs',sans-serif;letter-spacing:.1em;background:#fff;color:var(--black);padding:7px 13px;border-radius:999px;box-shadow:0 3px 0 #1b1b1b33;white-space:nowrap}
+.corner-label-1{left:5%;top:3%}
+.corner-label-2{right:15%;top:5%;background:var(--red);color:var(--beige);box-shadow:0 3px 0 #8f0b08}
+.corner-label-3{right:3%;bottom:6%}
+.corner-tap{position:absolute;left:50%;bottom:8px;translate:-50% 0;font:400 15px/1 'Mouse Memoirs',sans-serif;letter-spacing:.1em;color:var(--black);background:#f5e3cde6;padding:5px 12px;border-radius:999px;white-space:nowrap}
+.corner-map:hover .corner-tap,.corner-map:focus-visible .corner-tap{background:var(--red);color:var(--beige)}
+.corner-map:focus-visible{outline:4px solid var(--black);outline-offset:6px}
+html[data-motion="off"] .corner-rider,html[data-motion="off"] .corner-pulse,html[data-motion="off"] .corner-burst{display:none}
+html[data-motion="off"] .corner-route-drawn{stroke-dasharray:1 1!important}
+@media (max-width:860px){.kol-corner{grid-template-columns:1fr}.corner-map{transform:none}}
+@media (max-width:520px){.corner-label-2{right:10%}.corner-tap{font-size:13px;bottom:6px}.corner-map{border-radius:28px}}
+
+/* Night version of the skyline: its darkness is a fixed filter (rendered once); scrolling only changes its opacity. */
+.day-skyline-night{filter:brightness(.35);opacity:0;z-index:1}

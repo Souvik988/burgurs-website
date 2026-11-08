@@ -1,0 +1,25 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+.playwright-mcp/
+
+# Local tooling, working files and generated evidence
+.agents/
+.claude/
+.codex/
+.vercel/
+art-masters/
+output/
+research/
+skills-lock.json
+
+# Credentials and machine-specific settings
+.env
+.env.*
+!.env.example
+!.env.sample
+.npmrc
+*.pem
+*.key
+Thumbs.db

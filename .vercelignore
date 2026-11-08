@@ -1,0 +1,16 @@
+.git
+.agents
+.claude
+.codex
+node_modules
+dist
+art-masters
+output
+research
+scripts
+docs
+skills-lock.json
+.env
+.env.*
+.npmrc
+*.log
